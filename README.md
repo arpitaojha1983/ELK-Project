@@ -179,65 +179,8 @@ We have installed the following Beats on these machines:
 -  MetricBeat
 ​
 These Beats allow us to collect the following information from each machine:
-- This Beats allow us to keep track of who is logging in to these servers and monitors the behaviors.
+- FileBeat allow us to keep track of who is logging in to these servers and monitors the behaviors.
 - Also Metricbeats for  monitoring performance like CPU , memory and load.
-
-
-​
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -246,16 +189,22 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 ​
 SSH into the control node and follow the steps below:
-- Copy the _ssh-keygen____ file to ____ssh public key_.
-- Update the _____ file to include...
-- Run the playbook, and navigate to _terminal___ to check that the installation worked as expected.
+- Copy the filebeat-config.yml file to /etc/ansible/files.
+- Update the config file to include private ip of Elk server
+- Run the playbook, and navigate to ELK-Server-PublicIP:5601/app/kibana to check that the installation worked as expected.
 ​
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
 
+install-elk.yml - used to install ELK Server
+filebeat-playbook.yml - Used to install and configure Filebeat on Elk Server and DVWA servers
+
+I copied into /etc/ansible/
+
+
 
 - _Which file do you update to make Ansible run the playbook on a specific machine? 
-/etc/ansible/files/filebeat-config.yml.
+/etc/ansible/hosts
 
 
 
@@ -268,18 +217,26 @@ Filebeat will be installed on all of the client servers that we want to gather l
 
 
 
-
-
-
 - _Which URL do you navigate to in order to check that the ELK server is running?
 http://[40.87.110.143]:5601/app/kibana. ( ELK VM public ip)
 ​
+
+
+
+
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 
-* ssh jump@(IpAddress)
-* docker run -ti container/ansible
-* change dir. /etc/ansible
-* ssh-keygen to your web service
+* ssh sysadmin@jumpbox-privateIP
+* sudo docker container list -a - Locate the ansible container
+* sudo docker start
+* sudo attach docker
+* cd /etc/ansible
 * nano hosts (update IP on[webservers][elkservers]
 * nano ansible.cfg (remote_user to which server you want to use)
+* ansible-playbook install-elk.yml 
+* Open a new browser on Personal Workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) - This will bring up Kibana Web Portal
+
+
+
+
