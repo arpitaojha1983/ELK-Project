@@ -34,7 +34,7 @@ Load balancing ensures that the application will be highly available, in additio
 
 
 
-What is the advantage of a jump box?_
+What is the advantage of a jump box?_ 
 ​
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
 - _TODO: What does Filebeat watch for?_
