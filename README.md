@@ -69,7 +69,7 @@ A summary of the access policies in place can be found in the table below.
 | Jump Box |    Yes              | 10.0.0.0 to 10.255.255.255
 |   ELk Vm |    NO               | 10.1.0.0 to 10.255.255.255
 |   VM1    |    NO               | 10.1.0.0 to 10.255.255.255
-​|   VM2    |    NO               | 10.1.0.0 to 10.255.255.255
+|   VM2    |    NO               | 10.1.0.0 to 10.255.255.255
 |   VM3    |    No               | 10.1.0.0 to 10.255.255.255
 
 
